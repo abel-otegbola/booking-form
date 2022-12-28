@@ -224,10 +224,47 @@ select {
   }
 
   @media (max-width: 900px) {
+    .booking-form {
+        width: 95%;
+    }
     .about-home select {
       width: 100%;
     } 
     .about input {
       width: 100%;
+    }
+    .address {
+      grid-template-columns: auto;
+    }
+    .address input,
+    .address select {
+        grid-column: 1/4;
+    }
+    .address input:nth-child(3) {
+        grid-column: 1/4;
+    }
+    .how-often {
+        flex-wrap: wrap;
+    }
+    .payment svg {
+        width: 100%;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .payment-input {
+        flex-wrap: wrap;
+    }
+    .payment-input .expiry {
+        padding-left: 15px;
+    }
+    .date {
+        flex-wrap: wrap;
+    }
+    .extras p {
+        width: 100%;
+    }
+    .extras p svg {
+        width: 90%;
     }
   }
