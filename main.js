@@ -96,3 +96,57 @@ $('.booking-submit').click((e) => {
     console.log(data)
 })
 
+const calculateTotal = () => {
+    let serviceType = $(".service-type").val();
+    let bedroomIncrement = 15
+    if(serviceType !== "Regular") {
+        bedroomIncrement = 15
+    }
+
+    $("input, select").each(function() {
+        $(this).change(function() {
+            $(".bedrooms").text($("select[name=bedroom]").val())
+            $(".bedrooms-value").text("$" + $("select[name=bedroom]").find(':selected').data('amount'))
+            $(".bathrooms").text($("select[name=bathroom]").val())
+            $(".bathrooms-value").text("$" + $("select[name=bathroom]").find(':selected').data('amount'))
+            $(".kitchens").text($("select[name=kitchen]").val())
+            $(".kitchens-value").text("$" + $("select[name=kitchen]").find(':selected').data('amount'))
+            $(".dirty").text($("select[name=dirty]").val())
+            $(".dirty-value").text("$" + $("select[name=dirty]").find(':selected').data('amount'))
+        })
+    })
+
+    $(".extras p").each(function() {
+        $(this).click(function() {
+            let selectedclass = $(this).children("span").text()
+            if($(this).hasClass("active")) {
+                let li = $("<li></li>");
+                let span = $("<span></span>").text($(this).text())
+                let span2 = $("<span></span>").text($(this).data('amount'))
+
+                li.addClass("extras").addClass(selectedclass).append(span, span2)
+
+                $(".info-inner ul").append(li)
+            }
+            else {
+                $(".info-inner ul li.extras").each(function() {
+                    if($(this).hasClass(selectedclass)) {
+                        $(this).remove()
+                    }
+                })
+            }
+        })
+    })
+
+    $(".how-often span").each(function() {
+        $(this).click(function() {
+            console.log($(this).text())
+            if($(this).hasClass("active")) {
+                $(".how-often-option").text($(this).text())
+            }
+        })
+    })
+}
+
+calculateTotal()
+

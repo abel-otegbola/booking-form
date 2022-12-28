@@ -24,7 +24,7 @@
         <section>
             <Label>
                 <h2>CHOOSE SERVICE TYPE</h2>
-                <select name="service-type">
+                <select class="service-type" name="service-type">
                     <option>Regular</option>
                     <option>Deep Clean</option>
                     <option>Move-Out/Move In</option>
@@ -36,28 +36,40 @@
             <h2>TELL US ABOUT YOUR HOME</h2>
             <div class="about-home">
                 <select name="bedroom">
-                    <option data-amount="95.00">1 Bedroom</option>
+                    <option data-amount="95.00" selected>1 Bedroom</option>
                     <option data-amount="110.00">2 Bedrooms</option>
                     <option data-amount="125.00">3 Bedrooms</option>
                     <option data-amount="140.00">4 Bedrooms</option>
                     <option data-amount="155.00">5 Bedrooms</option>
                     <option data-amount="170.00">6 Bedrooms</option>
                 </select>
+                <select name="cabinet">
+                    <option data-amount="95.00">1 Cabinet</option>
+                </select>
+                <select name="window">
+                    <option data-amount="95.00">1 Window</option>
+                </select>
                 <select name="bathroom">
-                    <option data-amount="0">1 Bathroom</option>
+                    <option data-amount="0.00" selected>1 Bathroom</option>
                     <option data-amount="22.5">2 Bathrooms</option>
                     <option data-amount="45.00">3 Bathrooms</option>
                     <option data-amount="67.5">4 Bathrooms</option>
                     <option data-amount="90">5 Bathrooms</option>
                     <option data-amount="112.5">6 Bathrooms</option>
                 </select>
+                <select name="fridge">
+                    <option data-amount="95.00">1 Inside Fridge</option>
+                </select>
+                <select name="oven">
+                    <option data-amount="95.00">1 Inside Oven</option>
+                </select>
                 <select name="kitchen">
-                    <option data-amount="0">1 Kithchen</option>
-                    <option data-amount="40.00">2 Kithchens</option>
-                    <option data-amount="80.00">3 Kithchens</option>
+                    <option data-amount="0.00">1 Kitchen</option>
+                    <option data-amount="40.00">2 Kitchens</option>
+                    <option data-amount="80.00">3 Kitchens</option>
                 </select>
                 <select name="dirty">
-                    <option data-amount="0">Slightly Dirty</option>
+                    <option data-amount="0.00">Slightly Dirty</option>
                     <option data-amount="40.00">Pretty Dirty</option>
                     <option data-amount="60.00">Very Dirty</option>
                 </select>
@@ -201,11 +213,11 @@
                 <div class="info">
                     <b>H</b>
                     <div class="info-inner">
-                        <p><span>1 Bedroom</span> <span>$30.00</span></p>
+                        <p><span class="bedrooms">1 Bedroom</span> <span class="bedrooms-value">$95.00</span></p>
                         <ul>
-                            <li><span>6 Bathrooms</span> <span>$112.50</span></li>
-                            <li><span>3 Kithchens</span> <span>$80.00</span></li>
-                            <li><span>Very Dirty </span><span>$60.00</span></li>
+                            <li><span class="bathrooms">1 Bathroom</span> <span class="bathrooms-value">$0.00</span></li>
+                            <li><span class="kitchens">1 Kitchen</span> <span class="kitchens-value">$0.00</span></li>
+                            <li><span class="dirty">Slightly Dirty </span><span class="dirty-value">$0.00</span></li>
                         </ul>
                     </div>
                 </div>
@@ -214,12 +226,12 @@
                     <p>Choose Service date...</p>
                 </div>
                 <div class="info">
-                    <p>One Time</p>
+                    <p class="how-often-option">One Time</p>
                 </div>
 
                 <div class="total">
-                    <p><span>SUBTOTAL</span> <span>$145.00</span></p>
-                    <p><span>SALES TAX</span> <span>$19.40</span></p>
+                    <p><span>SUBTOTAL</span> <span class="subtotal">$145.00</span></p>
+                    <p><span>SALES TAX</span> <span class="tax">$19.40</span></p>
                     <p><span>TOTAL</span><span class="total-summary">$164.75</span></p>
                 </div>
             </div>
