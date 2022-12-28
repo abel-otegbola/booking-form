@@ -3,7 +3,7 @@
 .booking-form {
     padding: 10px;
     border: 1px solid #ababab;
-    color: #ababab;
+    color: #9b9a9a;
     box-shadow: -2px 2px 5px #d3d3d3,
                 2px 2px 5px #d3d3d3;
     font-family: 'M PLUS Rounded 1c', sans-serif;
@@ -18,7 +18,7 @@
 .booking-form h5,
 .booking-form h6 {
     font-weight: 300;
-    line-height: 25px;
+    line-height: 30px;
 }
 .booking-form h1,
 .booking-form h3 {
