@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300&display=swap');
+
+.booking-form {
+    padding: 10px;
+    border: 1px solid #ababab;
+    color: #ababab;
+    box-shadow: -2px 2px 5px #d3d3d3,
+                2px 2px 5px #d3d3d3;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    width: 75%;
+    margin: auto;
+    font-size: 16px;
+}
+.booking-form h1,
+.booking-form h2,
+.booking-form h3,
+.booking-form h4,
+.booking-form h5,
+.booking-form h6 {
+    font-weight: 300;
+    line-height: 25px;
+}
+.booking-form h1,
+.booking-form h3 {
+    text-align: center;
+}
+.booking-form h1 {
+    font-size: 35px;
+    color: #424242;
+    font-weight: 400;
+}
+.booking-form input,
+.booking-form select,
+.booking-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cccccc;
+    border-radius: none;
+}
+.booking-form input::placeholder,
+.booking-form textarea::placeholder {
+    color: #ababab;
+    font-size: 16px;
+}
+.booking-form textarea {
+    height: 100px;
+    width: 95%;
+}
+.booking-form header {
+    border-bottom: 1px solid #cccccc;
+}
+.booking-form section,
+.booking-form .form-footer {
+    border-bottom: 1px solid #cccccc;
+    padding: 10px 5% 60px 5%;
+}
+select {
+
+    /* styling */
+    background-color: white;
+    border: thin solid #cccccc;
+    display: inline-block;
+    font: inherit;
+    line-height: 1.3em;
+    padding: 0.5em;
+  
+    /* reset */
+  
+    margin: 0;      
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+  
+  
+  /* arrows */
+  
+  select {
+    background-image: linear-gradient(40deg, white 40%, #c7c7c7 50%, #c7c7c7 60%, white 60%), linear-gradient(-40deg, white 40%, #c7c7c7 50%, #c7c7c7 60%, white 60%);
+    background-position:
+    calc(100% - 23px) calc(1em + 0.5px),
+    calc(100% - 16px) calc(1em + 0.5px),
+    100% 0;
+  background-size:
+    7px 10px,
+    7px 10px,
+    10em 10em;
+  background-repeat: no-repeat;
+  }
+  .extras {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .extras p {
+    text-align: center;
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  .extras p:hover svg {
+    border-color: #e87a61;
+  }
+  .extras p.active svg {
+    background-color: #e87a61;
+  }
+  .extras p svg {
+    padding: 20px;
+    width: 120px;
+    border: 1px solid #c7c7c7;
+    border-radius: 5px;
+    margin-bottom: 15px;
+  }
+  .about-home, .about {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .about-home select {
+    width: 49%;
+  } 
+  .about input {
+    width: 45%;
+  }
+  .address {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 10px 20px;
+  }
+  .address input,
+  .address select {
+    width: auto;
+  }
+  .address input:nth-child(1) {
+    grid-column: 1/4;
+  }
+  .address input:nth-child(3) {
+    grid-column: 1/3;
+  }
+  .how-often, .date {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .how-often span {
+    padding: 17px;
+    width: 25%;
+    border: 1px solid #c7c7c7;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+  }
+  .how-often span:hover {
+    border-color: #e87a61;
+  }
+  .how-often span.active {
+    background-color: #e87a61;
+    color: #fff;
+  }
+  .discount {
+    display: flex;
+    gap: 10px;
+  }
+  .payment b {
+    display: block;
+    margin-top: 30px;
+  }
+  .payment-input {
+    display: flex;
+    border: 1px solid #c7c7c7;
+    margin-bottom: 15px;
+  }
+  .payment-input input {
+    width: 65px;
+    border: none;
+    outline: none;
+  }
+  .payment-input .card-number {
+    flex: 1;
+    width: auto;
+  }
+  .payment-input .expiry input {
+    padding-left: 0;
+  }
+  .payment-input .cvc input {
+    width: 40px;
+  }
+
+  .form-footer .agreement {
+    display: flex;
+    align-items: center;
+    margin-block: 10px;
+  }
+  .form-footer a {
+    color: inherit;
+    text-decoration: underline;
+  }
+  .form-footer .agreement input {
+    width: auto;
+    margin-right: 10px;
+  }
+  .form-footer .error {
+    text-align: center;
+    color: rgb(218, 54, 54);
+    padding: 10px;
+  }
+  .form-footer .booking-submit,
+  span.apply-code {
+    padding: 13px;
+    border-radius: 2px;
+    font-size: 18px;
+    width: 100%;
+    text-align: center;
+    background-color: #e87a61;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+
+  @media (max-width: 900px) {
+    .about-home select {
+      width: 100%;
+    } 
+    .about input {
+      width: 100%;
+    }
+  }
