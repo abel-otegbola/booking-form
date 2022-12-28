@@ -97,23 +97,55 @@ $('.booking-submit').click((e) => {
 })
 
 const calculateTotal = () => {
-    let serviceType = $(".service-type").val();
-    let bedroomIncrement = 15
-    if(serviceType !== "Regular") {
-        bedroomIncrement = 15
-    }
+
+    let bedroomIncrement = 15;
+    let startIndex = 95;
 
     $("input, select").each(function() {
         $(this).change(function() {
             $(".bedrooms").text($("select[name=bedroom]").val())
-            $(".bedrooms-value").text("$" + $("select[name=bedroom]").find(':selected').data('amount'))
+            $(".bedrooms-value").text("$" + (startIndex + (bedroomIncrement * $("select[name=bedroom]").find(':selected').data('amount'))) + ".00")
             $(".bathrooms").text($("select[name=bathroom]").val())
             $(".bathrooms-value").text("$" + $("select[name=bathroom]").find(':selected').data('amount'))
             $(".kitchens").text($("select[name=kitchen]").val())
             $(".kitchens-value").text("$" + $("select[name=kitchen]").find(':selected').data('amount'))
             $(".dirty").text($("select[name=dirty]").val())
-            $(".dirty-value").text("$" + $("select[name=dirty]").find(':selected').data('amount'))
-        })
+            $(".dirty-value").text("$" + $("select[name=dirty]").find(':selected').data('amount'));
+
+            console.log("$" + (startIndex + (bedroomIncrement * $("select[name=bedroom]").find(':selected').data('amount'))) + ".00")
+
+            let serviceType = $(".service-type").val();
+            if(serviceType === "Deep Clean") {
+                bedroomIncrement = 7.5
+                startIndex = 135
+                $(".bedrooms-value").text("$" + startIndex + ".00")
+            }  
+            else if(serviceType === "Move-Out/Move In") {
+                bedroomIncrement = 7.5
+                startIndex = 164
+                $(".bedrooms-value").text("$" + startIndex + ".00")
+            }
+            else {
+                bedroomIncrement = 15
+                startIndex = 95
+                $(".bedrooms-value").text("$" + startIndex + ".00")
+            }
+            if(serviceType === "Move-Out/Move In") {
+                $(".about-home").addClass("move")
+                let lists = $(`
+                    <li class="move-others-option"><span>Inside Oven </span><span class="value">$30.00</span></li>
+                    <li class="move-others-option"><span>Inside Fridge </span><span class="value">$30.00</span></li>
+                    <li class="move-others-option"><span>Windows</span> <span class="value">$30.00</span></li>
+                    <li class="move-others-option"><span>Cabinet</span> <span class="value">$30.00</span></li>`)
+                $(".info-inner ul").append(lists)
+            }
+            else {
+                $(".about-home").removeClass("move")
+                $(".info-inner ul li.move-others-option").remove()
+            }
+            calculateTotalValue()
+        })  
+
     })
 
     $(".extras p").each(function() {
@@ -122,7 +154,7 @@ const calculateTotal = () => {
             if($(this).hasClass("active")) {
                 let li = $("<li></li>");
                 let span = $("<span></span>").text($(this).text())
-                let span2 = $("<span></span>").text($(this).data('amount'))
+                let span2 = $("<span></span>").text($(this).data('amount')).addClass("value")
 
                 li.addClass("extras").addClass(selectedclass).append(span, span2)
 
@@ -135,17 +167,31 @@ const calculateTotal = () => {
                     }
                 })
             }
+            calculateTotalValue()
         })
     })
 
     $(".how-often span").each(function() {
         $(this).click(function() {
-            console.log($(this).text())
             if($(this).hasClass("active")) {
                 $(".how-often-option").text($(this).text())
             }
+            calculateTotalValue()
         })
     })
+
+    const calculateTotalValue = () => {
+        let total = 0
+        let tax = 0
+        $(".info-inner .value").each(function() {
+            total += parseFloat(($(this).text().replaceAll("$", "")))
+        })
+        $(".subtotal").text("$"+ (total + 20) + ".00")
+        tax = (total * 13.383 / 100).toFixed(2)
+        $(".tax").text("$"+ tax)
+        totalOverall = (total + 20 + parseFloat(tax)).toFixed(2)
+        $(".total-overall").text("$"+ totalOverall)
+    }
 }
 
 calculateTotal()

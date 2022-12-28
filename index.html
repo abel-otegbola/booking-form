@@ -36,17 +36,17 @@
             <h2>TELL US ABOUT YOUR HOME</h2>
             <div class="about-home">
                 <select name="bedroom">
-                    <option data-amount="95.00" selected>1 Bedroom</option>
-                    <option data-amount="110.00">2 Bedrooms</option>
-                    <option data-amount="125.00">3 Bedrooms</option>
-                    <option data-amount="140.00">4 Bedrooms</option>
-                    <option data-amount="155.00">5 Bedrooms</option>
-                    <option data-amount="170.00">6 Bedrooms</option>
+                    <option data-amount="0" selected>1 Bedroom</option>
+                    <option data-amount="1">2 Bedrooms</option>
+                    <option data-amount="2">3 Bedrooms</option>
+                    <option data-amount="3">4 Bedrooms</option>
+                    <option data-amount="4">5 Bedrooms</option>
+                    <option data-amount="5">6 Bedrooms</option>
                 </select>
-                <select name="cabinet">
+                <select class="move-others" name="cabinet">
                     <option data-amount="95.00">1 Cabinet</option>
                 </select>
-                <select name="window">
+                <select class="move-others" name="window">
                     <option data-amount="95.00">1 Window</option>
                 </select>
                 <select name="bathroom">
@@ -57,10 +57,10 @@
                     <option data-amount="90">5 Bathrooms</option>
                     <option data-amount="112.5">6 Bathrooms</option>
                 </select>
-                <select name="fridge">
+                <select class="move-others" name="fridge">
                     <option data-amount="95.00">1 Inside Fridge</option>
                 </select>
-                <select name="oven">
+                <select class="move-others" name="oven">
                     <option data-amount="95.00">1 Inside Oven</option>
                 </select>
                 <select name="kitchen">
@@ -213,11 +213,11 @@
                 <div class="info">
                     <b>H</b>
                     <div class="info-inner">
-                        <p><span class="bedrooms">1 Bedroom</span> <span class="bedrooms-value">$95.00</span></p>
+                        <p><span class="bedrooms">1 Bedroom</span> <span class="bedrooms-value value">$95.00</span></p>
                         <ul>
-                            <li><span class="bathrooms">1 Bathroom</span> <span class="bathrooms-value">$0.00</span></li>
-                            <li><span class="kitchens">1 Kitchen</span> <span class="kitchens-value">$0.00</span></li>
-                            <li><span class="dirty">Slightly Dirty </span><span class="dirty-value">$0.00</span></li>
+                            <li><span class="kitchens">1 Kitchen</span> <span class="kitchens-value value">$0.00</span></li>
+                            <li><span class="bathrooms">1 Bathroom</span> <span class="bathrooms-value value">$0.00</span></li>
+                            <li><span class="dirty">Slightly Dirty </span><span class="dirty-value value">$0.00</span></li>
                         </ul>
                     </div>
                 </div>
@@ -230,9 +230,9 @@
                 </div>
 
                 <div class="total">
-                    <p><span>SUBTOTAL</span> <span class="subtotal">$145.00</span></p>
-                    <p><span>SALES TAX</span> <span class="tax">$19.40</span></p>
-                    <p><span>TOTAL</span><span class="total-summary">$164.75</span></p>
+                    <p><span>SUBTOTAL</span> <span class="subtotal">$115.00</span></p>
+                    <p><span>SALES TAX</span> <span class="tax">$15.39</span></p>
+                    <p><span>TOTAL</span><span class="total-overall">$164.75</span></p>
                 </div>
             </div>
         </aside>

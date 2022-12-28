@@ -114,6 +114,12 @@ select {
     border-radius: 5px;
     margin-bottom: 15px;
   }
+  .about-home .move-others {
+    display: none;
+  }
+  .about-home.move .move-others {
+    display: block;
+  }
   .about-home, .about {
     display: flex;
     justify-content: space-between;
@@ -241,7 +247,7 @@ aside .total {
     padding: 5%;
     border-top: 1px solid #dddddd;
 }
-aside .total .total-summary {
+aside .total .total-overall {
     font-size: 30px;
     padding: 10px 0;
     color: #e87a61;
