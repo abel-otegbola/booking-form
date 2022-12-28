@@ -1,15 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300&display=swap');
-
 .booking-form {
     padding: 10px;
     border: 1px solid #ababab;
-    color: #000000;
+    color: #494949;
     box-shadow: -2px 2px 5px #d3d3d3,
                 2px 2px 5px #d3d3d3;
     font-family: 'M PLUS Rounded 1c', sans-serif;
-    width: 75%;
-    margin: auto;
+    width: 55%;
     font-size: 16px;
+    margin-left: 7%;
 }
 .booking-form h1,
 .booking-form h2,
@@ -191,7 +189,64 @@ select {
   .payment-input .cvc input {
     width: 40px;
   }
-
+.booking-form aside {
+    width: 30%;
+    margin: auto;
+    position: absolute;
+    top: 10px;
+    right: 5%;
+    height: 520vh;
+}
+.booking-form aside .summary {
+    border: 1px solid #cccccc;
+    position: -webkit-sticky;
+    position: sticky;
+    background-color: #fff;
+    top: 10px;
+    right: 0;
+}
+.booking-form aside h3 {
+    color: #e87a61;
+    font-weight: 700;
+    border-bottom: 1px solid #dddddd;
+    padding-bottom: 20px;
+}
+aside {
+    color: #afafaf;
+    font-weight: 500;
+}
+ aside .info {
+    display: flex;
+    width: 90%;
+    padding: 10px 5%;
+  }
+  aside .info p,
+  aside .info li,
+  aside .total p {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    line-height: 30px;
+    margin: 0;
+    padding: 0;
+  }
+aside b {
+    width: 20%;
+}
+aside .info .info-inner {
+    width: 80%;
+}
+aside .total {
+    padding: 5%;
+    border-top: 1px solid #dddddd;
+}
+aside .total .total-summary {
+    font-size: 30px;
+    padding: 10px 0;
+    color: #e87a61;
+    font-weight: 700;
+}
   .form-footer .agreement {
     display: flex;
     align-items: center;
@@ -226,6 +281,19 @@ select {
   @media (max-width: 900px) {
     .booking-form {
         width: 95%;
+        margin: auto;
+    }
+    .booking-form aside {
+        position: static;
+        width: 100%;
+        height: auto;
+    }
+    .booking-form aside .summary {
+        position: static;
+        border: none;
+    }
+    .booking-form aside .summary h3 {
+        display: none;
     }
     .about-home select {
       width: 100%;

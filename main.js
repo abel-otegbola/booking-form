@@ -93,6 +93,6 @@ $('.booking-submit').click((e) => {
 
     $(".error").text(errors[0].msg)
 
-    console.log(data, errors)
+    console.log(data)
 })
 
