@@ -130,7 +130,7 @@ const calculateTotal = () => {
                 startIndex = 95
                 $(".bedrooms-value").text("$" + startIndex + ".00")
             }
-            if(serviceType === "Move-Out/Move In") {
+            if(serviceType === "Move-Out/Move In" && $(this).hasClass("service-type")) {
                 $(".about-home").addClass("move")
                 let lists = $(`
                     <li class="move-others-option"><span>Inside Oven </span><span class="value">$30.00</span></li>
@@ -139,7 +139,7 @@ const calculateTotal = () => {
                     <li class="move-others-option"><span>Cabinet</span> <span class="value">$30.00</span></li>`)
                 $(".info-inner ul").append(lists)
             }
-            else {
+            else if (serviceType !== "Move-Out/Move In") {
                 $(".about-home").removeClass("move")
                 $(".info-inner ul li.move-others-option").remove()
             }
