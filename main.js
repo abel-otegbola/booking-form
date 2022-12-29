@@ -22,7 +22,7 @@ $('[data-payment="expiry"]').payment('formatCardExpiry');
 $('[data-payment="cvc"]').payment('formatCardCVC');
 
         
-
+// Validation of form when submit button is clicked
 $('.booking-submit').click((e) => {
     e.preventDefault()
 
@@ -90,11 +90,16 @@ $('.booking-submit').click((e) => {
         errors.push({ type: "expirydate", msg: "Please input the expirydate" })
     }
 
+    $(".error").text("")
+    // Display the first error encountered in list
     $(".error").text(errors[0].msg)
 
+    // Send all data to backend
     console.log(data)
 })
 
+
+// Booking summary calculator 
 const calculateTotal = () => {
 
     let bedroomIncrement = 15;
@@ -215,6 +220,8 @@ window.addEventListener("load", () => {
 
 $(":input.datepicker").change(() => {
     let date = formatDate($(".datepicker").val())
+
+    let split = $(".datepicker").val().split("/")[1];
 
     $(".timepicker").empty()
     let heading = $('<option>', {
