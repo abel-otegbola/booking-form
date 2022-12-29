@@ -144,8 +144,6 @@ const calculateTotal = () => {
             $(".dirty").text($("select[name=dirty]").val())
             $(".dirty-value").text("$" + $("select[name=dirty]").find(':selected').data('amount'));
 
-            console.log("$" + (startIndex + (bedroomIncrement * $("select[name=bedroom]").find(':selected').data('amount'))) + ".00")
-
             calculateTotalValue()
         })  
 
