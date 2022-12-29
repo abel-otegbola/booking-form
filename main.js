@@ -103,24 +103,14 @@ const calculateTotal = () => {
 
     $("input, select").each(function() {
         $(this).change(function() {
-            $(".bedrooms").text($("select[name=bedroom]").val())
-            $(".bedrooms-value").text("$" + (startIndex + (bedroomIncrement * $("select[name=bedroom]").find(':selected').data('amount'))) + ".00")
-            $(".bathrooms").text($("select[name=bathroom]").val())
-            $(".bathrooms-value").text("$" + $("select[name=bathroom]").find(':selected').data('amount'))
-            $(".kitchens").text($("select[name=kitchen]").val())
-            $(".kitchens-value").text("$" + $("select[name=kitchen]").find(':selected').data('amount'))
-            $(".dirty").text($("select[name=dirty]").val())
-            $(".dirty-value").text("$" + $("select[name=dirty]").find(':selected').data('amount'));
-
-            console.log("$" + (startIndex + (bedroomIncrement * $("select[name=bedroom]").find(':selected').data('amount'))) + ".00")
-
+            
             let serviceType = $(".service-type").val();
             if(serviceType === "Deep Clean") {
                 bedroomIncrement = 7.5
                 startIndex = 135
                 $(".bedrooms-value").text("$" + startIndex + ".00")
             }  
-            else if(serviceType === "Move-Out/Move In") {
+            else if (serviceType === "Move-Out/Move In") {
                 bedroomIncrement = 7.5
                 startIndex = 164
                 $(".bedrooms-value").text("$" + startIndex + ".00")
@@ -143,6 +133,19 @@ const calculateTotal = () => {
                 $(".about-home").removeClass("move")
                 $(".info-inner ul li.move-others-option").remove()
             }
+            
+            
+            $(".bedrooms").text($("select[name=bedroom]").val())
+            $(".bedrooms-value").text("$" + (startIndex + (bedroomIncrement * $("select[name=bedroom]").find(':selected').data('amount'))) + ".00")
+            $(".bathrooms").text($("select[name=bathroom]").val())
+            $(".bathrooms-value").text("$" + $("select[name=bathroom]").find(':selected').data('amount'))
+            $(".kitchens").text($("select[name=kitchen]").val())
+            $(".kitchens-value").text("$" + $("select[name=kitchen]").find(':selected').data('amount'))
+            $(".dirty").text($("select[name=dirty]").val())
+            $(".dirty-value").text("$" + $("select[name=dirty]").find(':selected').data('amount'));
+
+            console.log("$" + (startIndex + (bedroomIncrement * $("select[name=bedroom]").find(':selected').data('amount'))) + ".00")
+
             calculateTotalValue()
         })  
 
