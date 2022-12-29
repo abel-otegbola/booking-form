@@ -17,7 +17,6 @@ howOften.forEach(choice => {
 })
 
 $('[data-toggle="datepicker"]').datepicker();
-$('[data-toggle="timepicker"]').timepicker();
 $('[data-payment="cardnumber"]').payment('formatCardNumber');
 $('[data-payment="expiry"]').payment('formatCardExpiry');
 $('[data-payment="cvc"]').payment('formatCardCVC');
@@ -136,7 +135,7 @@ const calculateTotal = () => {
             
             
             $(".bedrooms").text($("select[name=bedroom]").val())
-            $(".bedrooms-value").text("$" + (startIndex + (bedroomIncrement * $("select[name=bedroom]").find(':selected').data('amount'))) + ".00")
+            $(".bedrooms-value").text("$" + (startIndex + (bedroomIncrement * $("select[name=bedroom]").find(':selected').data('amount'))).toFixed(2))
             $(".bathrooms").text($("select[name=bathroom]").val())
             $(".bathrooms-value").text("$" + $("select[name=bathroom]").find(':selected').data('amount'))
             $(".kitchens").text($("select[name=kitchen]").val())
@@ -209,3 +208,32 @@ window.addEventListener("load", () => {
         $("select[name=state]").append(option)
     })
 })
+
+$(":input.datepicker").change(() => {
+    let date = formatDate($(".datepicker").val())
+
+    let heading = $('<option>', {
+        text: date[0] + " " + date[1] + " " + date[2],
+        disabled: true
+    })
+    let options = `<option>08:00AM - 10:00AM</option>
+                    <option>10:00AM - 12:00PM</option>
+                    <option>12:00PM - 02:00PM</option>
+                    <option>02:00PM - 04:00PM</option>`
+
+    $(".timepicker").append(heading, options)
+})
+
+const formatDate = (date) => {
+    let splittedDate = date.split("/")
+
+    let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+
+    result = [];
+
+    result.push(splittedDate[1])
+    result.push(months[splittedDate[0] -1])
+    result.push(splittedDate[2])
+    
+    return result;
+}
