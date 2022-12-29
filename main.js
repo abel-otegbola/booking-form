@@ -122,10 +122,10 @@ const calculateTotal = () => {
             if(serviceType === "Move-Out/Move In" && $(this).hasClass("service-type")) {
                 $(".about-home").addClass("move")
                 let lists = $(`
-                    <li class="move-others-option"><span>Inside Oven </span><span class="value">$30.00</span></li>
+                    <li class="move-others-option"><span>Inside Oven </span><span class="value">$22.50</span></li>
                     <li class="move-others-option"><span>Inside Fridge </span><span class="value">$30.00</span></li>
-                    <li class="move-others-option"><span>Windows</span> <span class="value">$30.00</span></li>
-                    <li class="move-others-option"><span>Cabinet</span> <span class="value">$30.00</span></li>`)
+                    <li class="move-others-option"><span>Windows</span> <span class="value">$22.50</span></li>
+                    <li class="move-others-option"><span>Cabinet</span> <span class="value">$22.50</span></li>`)
                 $(".info-inner ul").append(lists)
             }
             else if (serviceType !== "Move-Out/Move In") {
@@ -135,7 +135,11 @@ const calculateTotal = () => {
             
             
             $(".bedrooms").text($("select[name=bedroom]").val())
-            $(".bedrooms-value").text("$" + (startIndex + (bedroomIncrement * $("select[name=bedroom]").find(':selected').data('amount'))).toFixed(2))
+            if(serviceType === "Deep Clean" ) {
+                $(".bedrooms-value").text("$" + (startIndex + (bedroomIncrement * $("select[name=bedroom]").find(':selected').data('amount'))).toFixed(2))
+            } else {
+                $(".bedrooms-value").text("$" + (startIndex + (bedroomIncrement * $("select[name=bedroom]").find(':selected').data('amount'))).toFixed(2))
+            }
             $(".bathrooms").text($("select[name=bathroom]").val())
             $(".bathrooms-value").text("$" + $("select[name=bathroom]").find(':selected').data('amount'))
             $(".kitchens").text($("select[name=kitchen]").val())
@@ -187,7 +191,7 @@ const calculateTotal = () => {
             total += parseFloat(($(this).text().replaceAll("$", "")))
         })
         $(".subtotal").text("$"+ (total + 20) + ".00")
-        tax = (total * 13.383 / 100).toFixed(2)
+        tax = ((total + 20) * 13.379 / 100).toFixed(2)
         $(".tax").text("$"+ tax)
         totalOverall = (total + 20 + parseFloat(tax)).toFixed(2)
         $(".total-overall").text("$"+ totalOverall)
@@ -223,6 +227,11 @@ $(":input.datepicker").change(() => {
                     <option>02:00PM - 04:00PM</option>`
 
     $(".timepicker").append(heading, options)
+    $(".date-info").text($(".datepicker").val() + " " + "@" + " " + $(".timepicker").val())
+})
+
+$(".timepicker").change(() => {
+    $(".date-info").text($(".datepicker").val() + " " + "@" + " " + $(".timepicker").val())
 })
 
 const formatDate = (date) => {
