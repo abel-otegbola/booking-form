@@ -212,6 +212,7 @@ window.addEventListener("load", () => {
 $(":input.datepicker").change(() => {
     let date = formatDate($(".datepicker").val())
 
+    $(".timepicker").empty()
     let heading = $('<option>', {
         text: date[0] + " " + date[1] + " " + date[2],
         disabled: true
