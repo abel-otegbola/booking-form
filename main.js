@@ -95,7 +95,16 @@ $('.booking-submit').click((e) => {
     $(".error").text(errors[0].msg)
 
     // Send all data to backend
-    console.log(data)
+    fetch('https://mailme.vercel.app/api/endpoint/abel15655@gmail.com/Contracts', {
+       method: 'POST',
+       header: {
+         'Content-Type': 'application/json'
+       },
+       body: JSON.stringify({data})
+    })
+    .then(res => res.json())
+    .then(data => alert(data))
+    .catch(err => alert(err))
 })
 
 
