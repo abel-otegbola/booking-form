@@ -90,21 +90,24 @@ $('.booking-submit').click((e) => {
         errors.push({ type: "expirydate", msg: "Please input the expirydate" })
     }
 
-    $(".error").text("")
-    // Display the first error encountered in list
-    $(".error").text(errors[0].msg)
-
     // Send all data to backend
-    fetch('https://mailme.vercel.app/api/endpoint/abel15655@gmail.com/Contracts', {
-       method: 'POST',
-       header: {
-         'Content-Type': 'application/json'
-       },
-       body: JSON.stringify({data})
-    })
-    .then(res => res.json())
-    .then(data => alert(data))
-    .catch(err => alert(err))
+    if(errors.length === 0) {
+       fetch('https://mailme.vercel.app/api/endpoint/abel15655@gmail.com/Contracts', {
+          method: 'POST',
+          header: {
+             'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({data})
+       })
+       .then(res => res.json())
+       .then(data => alert(data))
+       .catch(err => alert(err))
+    }
+    else {
+       $(".error").text("")
+       // Display the first error encountered in list
+       $(".error").text(errors[0].msg)
+    }
 })
 
 
