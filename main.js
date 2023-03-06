@@ -24,17 +24,18 @@ $('[data-payment="cvc"]').payment('formatCardCVC');
         
 // Validation of form when submit button is clicked
 $('.booking-submit').click((e) => {
-    e.preventDefault()
 
     let data = {}
-    data.extras = [];
+    let extras = [];
     data.howOften = "";
 
     $(".extras p").each(function() {
         if ($(this).attr("class") === "active") {
-            data.extras.push($(this).children("span").text())
+            extras.push($(this).children("span").text())
         }
     })
+
+    data.extras = extras.join()
 
     $(".how-often span").each(function() {
         if ($(this).attr("class") === "active") {
@@ -90,12 +91,29 @@ $('.booking-submit').click((e) => {
         errors.push({ type: "expirydate", msg: "Please input the expirydate" })
     }
 
-    $(".error").text("")
     // Display the first error encountered in list
-    $(".error").text(errors[0].msg)
 
+    e.preventDefault()
     // Send all data to backend
-    console.log(data)
+    if(errors.length > 0) {
+        $(".error").text("")
+        $(".error").text(errors[0].msg)
+        return false;
+    }
+    else {
+        fetch("https://mailme.vercel.app/api/endpoint/cpcsg0vupk", {
+            method: "post",
+            mode: 'no-cors',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(data => console.log(data))
+        .catch(err => console.log(err))
+    }
+    console.log(data, errors)
 })
 
 
